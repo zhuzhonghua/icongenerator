@@ -26,3 +26,4 @@ typedef SDL_Rect Rect;
 typedef SDL_Point Point;
 
 #include "util.h"
+#include "image_util.h"
