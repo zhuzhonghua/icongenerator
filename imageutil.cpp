@@ -30,3 +30,26 @@ SDL_Texture* ImageUtil::createSolid(SDL_Renderer* render, int width, int height,
 
   return tex;
 }
+
+// TODO: texture cache
+SDL_Texture* ImageUtil::createTexture(SDL_Renderer* render, const std::string& path)
+{
+	return IMG_LoadTexture(render, path.c_str());
+}
+
+SDL_Texture* ImageUtil::createTex(const std::string& path)
+{
+	return ImageUtil::createTexture(gRender, path);
+}
+
+SDL_Renderer* ImageUtil::gRender;
+
+SDL_Renderer* ImageUtil::getRenderer()
+{
+	return gRender;
+}
+
+void ImageUtil::setRenderer(SDL_Renderer* render)
+{
+	gRender = render;
+}

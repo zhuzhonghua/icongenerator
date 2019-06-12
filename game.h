@@ -3,6 +3,8 @@
 #include "timing.h"
 #include "inputmanager.h"
 
+class FrameItems;
+
 class Game{
 public:
   Game();
@@ -27,4 +29,7 @@ protected:
   SDL_Renderer* _renderer;
 
   InputManager _inputMgr;
+
+protected:
+	FrameItems* _frame;
 };

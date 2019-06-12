@@ -2,7 +2,7 @@
 #include "game.h"
 #include "util.h"
 #include "imageutil.h"
-
+#include "frame_items.h"
 
 Game::Game()
 {
@@ -17,8 +17,11 @@ void Game::init()
   SDL_Init(SDL_INIT_EVERYTHING);
   _window = SDL_CreateWindow( "IconGenerator", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, _width, _height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN );
   _renderer = SDL_CreateRenderer(_window, -1, 0);
-
+	ImageUtil::setRenderer(_renderer);
+	
   _fpsLimiter.setMaxFPS(60.0f);
+
+	_frame = new FrameItems();
 }
 
 void Game::run()
@@ -49,6 +52,7 @@ void Game::run()
 
 void Game::draw()
 {
+	_frame->draw();
 }
 
 void Game::update()
