@@ -1,11 +1,14 @@
 #include "stdafx.h"
 
-#include "frame_items.h"
+#include "frameitems.h"
 #include "imageutil.h"
+#include "toucharea.h"
 
 FrameItems::FrameItems()
 {
 	tex = ImageUtil::createTex("data/head/1.png");
+	
+	ta = new TouchArea(Utils::rect(100, 100, 48, 48));
 }
 
 FrameItems::~FrameItems()

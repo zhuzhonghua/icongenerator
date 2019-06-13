@@ -2,7 +2,7 @@
 #include "game.h"
 #include "util.h"
 #include "imageutil.h"
-#include "frame_items.h"
+#include "frameitems.h"
 
 Game::Game()
 {
@@ -83,5 +83,7 @@ void Game::processInput()
       _inputMgr.releaseKey(e.button.button);
       break;
     }
+
+		_inputMgr.dispatch(&e);
   }
 }

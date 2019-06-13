@@ -1,9 +1,19 @@
 #include "stdafx.h"
 
 #include "inputmanager.h"
+#include "eventlistener.h"
+
+InputManager* InputManager::_inst;
 
 InputManager::InputManager()
 {
+	ASSERT(_inst == NULL);
+	_inst = this;
+}
+
+InputManager*	InputManager::inst()
+{
+	return _inst;
 }
 
 void InputManager::update()
@@ -61,4 +71,30 @@ bool InputManager::wasKeyDown(unsigned int key)
   else{
     return false;
   }
+}
+
+void InputManager::dispatch(SDL_Event * e)
+{
+	for (std::set<EventListener*>::iterator itr = listeners.begin();
+			 itr != listeners.end(); itr++)
+	{
+		if((*itr)->onEvent(e))
+		{
+			break;
+		}
+	}
+}
+
+void InputManager::addEventListener(EventListener* el)
+{
+	listeners.insert(el);
+}
+
+void InputManager::removeEventListener(EventListener* el)
+{
+	std::set<EventListener*>::iterator itr = listeners.find(el);
+	if (itr != listeners.end())
+	{
+		listeners.erase(itr);
+	}
 }
