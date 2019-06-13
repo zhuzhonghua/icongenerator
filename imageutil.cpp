@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "imageutil.h"
 
-SDL_Texture* ImageUtil::createSolid(SDL_Renderer* render, int width, int height, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+Texture* ImageUtil::createSolid(SDL_Renderer* render, int width, int height, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
 {
   Uint32 rmask, gmask, bmask, amask;
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
@@ -31,15 +31,31 @@ SDL_Texture* ImageUtil::createSolid(SDL_Renderer* render, int width, int height,
   return tex;
 }
 
+Texture* ImageUtil::createSolid(int width, int height, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+{
+	return createSolid(gRender, width, height, r, g, b, a);
+}
+
 // TODO: texture cache
-SDL_Texture* ImageUtil::createTexture(SDL_Renderer* render, const std::string& path)
+Texture* ImageUtil::createTexture(SDL_Renderer* render, const std::string& path)
 {
 	return IMG_LoadTexture(render, path.c_str());
 }
 
-SDL_Texture* ImageUtil::createTex(const std::string& path)
+Texture* ImageUtil::createTex(const std::string& path)
 {
 	return ImageUtil::createTexture(gRender, path);
+}
+
+// TODO: tex cache
+void ImageUtil::destroyTex(Texture* tex)
+{
+	SDL_DestroyTexture(tex);
+}
+
+void ImageUtil::renderTex(Texture* tex, Rect* src, Rect* dst)
+{
+	SDL_RenderCopy(gRender, tex, src, &dst);
 }
 
 SDL_Renderer* ImageUtil::gRender;

@@ -12,12 +12,20 @@ Game::Game()
   _gameExit = false;
 }
 
+Game::~Game()
+{
+	TTF_Quit();
+}
+
 void Game::init()
 {
   SDL_Init(SDL_INIT_EVERYTHING);
   _window = SDL_CreateWindow( "IconGenerator", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, _width, _height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN );
   _renderer = SDL_CreateRenderer(_window, -1, 0);
 	ImageUtil::setRenderer(_renderer);
+
+	TTF_Init();	
+	TextUtil::initFont(_renderer, "data/font/font.ttf");
 	
   _fpsLimiter.setMaxFPS(60.0f);
 

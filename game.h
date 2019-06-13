@@ -8,6 +8,8 @@ class FrameItems;
 class Game{
 public:
   Game();
+	~Game();
+	
   void init();
   void run();
 	

@@ -8,9 +8,9 @@ import re
 dirs = "."
 temp_dir = "temp"
 target = "icongenerator"
-cpp_flags = os.popen("sdl2-config --cflags").read().replace("\n","")+" -Wall -g "
+cpp_flags = os.popen("sdl2-config --cflags").read().replace("\n","")+" -Wall -g2 -ggdb -O0 -I. "
 
-cpp_libs = os.popen("sdl2-config --libs").read().replace("\n","")+" -lfreetype -lSDL2_mixer -lSDL2_image"
+cpp_libs = os.popen("sdl2-config --libs").read().replace("\n","")+" -lfreetype -lSDL2_ttf -lSDL2_mixer -lSDL2_image -lm -lstdc++"
 
 ############################
 #create tempdir
