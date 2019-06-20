@@ -55,7 +55,7 @@ void ImageUtil::destroyTex(Texture* tex)
 
 void ImageUtil::renderTex(Texture* tex, Rect* src, Rect* dst)
 {
-	SDL_RenderCopy(gRender, tex, src, &dst);
+	SDL_RenderCopy(gRender, tex, src, dst);
 }
 
 void ImageUtil::queryTex(Texture* tex, int* w, int* h)

@@ -11,5 +11,4 @@ public:
 protected:
 	std::string _str;
 	Texture* _strTex;
-	Rect _bound;
 };

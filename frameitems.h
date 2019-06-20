@@ -1,6 +1,6 @@
 #pragma once
 
-class TouchArea;
+class Tab;
 class FrameItems{
 public:
 	FrameItems();
@@ -8,6 +8,5 @@ public:
 
 	void draw();
 protected:
-	SDL_Texture* tex;
-	TouchArea* ta;
+	Tab* _tab;
 };

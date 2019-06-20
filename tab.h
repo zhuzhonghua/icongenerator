@@ -6,12 +6,12 @@
 class Text;
 class Image;
 
-class Tab : public TouchArea, public Visual{
+class Tab{
 public:
 	Tab(const std::string& str);
 	~Tab();
 
-	virtual void draw();
+	void draw();
 protected:
 	Text* _txt;
 	Image* _bg;
