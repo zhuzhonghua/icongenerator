@@ -1,6 +1,8 @@
 #pragma once
 
-class Visual{
+#include "gizmo.h"
+
+class Visual:public Gizmo{
 public:
 	virtual void draw() = 0;
 	

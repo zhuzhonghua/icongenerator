@@ -5,7 +5,7 @@
 TTF_Font* TextUtil::_font;
 SDL_Renderer*TextUtil:: _render;
 
-void TextUtil::initFont(SDL_Renderer* render, const std::tring& path)
+void TextUtil::initFont(SDL_Renderer* render, const std::string& path)
 {
 	ASSERT(_font == NULL);
 

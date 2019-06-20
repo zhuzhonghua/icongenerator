@@ -5,10 +5,10 @@ import os
 import re
 
 #all src dirs
-dirs = "."
+dirs = ". base"
 temp_dir = "temp"
 target = "icongenerator"
-cpp_flags = os.popen("sdl2-config --cflags").read().replace("\n","")+" -Wall -g2 -ggdb -O0 -I. "
+cpp_flags = os.popen("sdl2-config --cflags").read().replace("\n","")+" -Wall -g2 -ggdb -O0 -I. -Ibase"
 
 cpp_libs = os.popen("sdl2-config --libs").read().replace("\n","")+" -lfreetype -lSDL2_ttf -lSDL2_mixer -lSDL2_image -lm -lstdc++"
 
@@ -21,11 +21,16 @@ if not os.path.exists(temp_dir):
 #split line
 cpp_files = []
 for one_dir in dirs.split(' '):
-	cpp_files = cpp_files + [cpp for cpp in os.listdir(one_dir) if cpp.endswith('.cpp') or cpp.endswith('.c')]
+	cpp_files = cpp_files + [one_dir+"/"+cpp for cpp in os.listdir(one_dir) if cpp.endswith('.cpp') or cpp.endswith('.c')]
 
-get_temp_o = lambda cpp:temp_dir+"/"+cpp.replace(".cpp",".o").replace("/",".")
-	
+get_temp_o = lambda cpp:temp_dir+"/"+cpp.replace("./","").replace(".cpp",".o").replace("/",".")
+
 objs = list(map(get_temp_o, cpp_files))
+
+#print(cpp_files)
+#print(objs)
+#sys.exit()
+
 
 phony = """
 .PHONY: clean all
@@ -58,8 +63,9 @@ clean_cmd = """
 clean:
 	rm -f *.d; \
 	rm -f *.o; \
-	rm -f $(TARGET)
-""".replace("$(TARGET)", target)
+	rm -f $(TARGET) \
+	rm -rf $(TEMP_DIR)
+""".replace("$(TARGET)", target).replace("$(TEMP_DIR)", temp_dir)
 
 with open("Makefile", "w") as make_file:
 	print("start write makefile")

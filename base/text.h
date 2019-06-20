@@ -2,8 +2,6 @@
 
 #include "visual.h"
 
-class Texture;
-
 class Text : public Visual{
 public:
 	Text(const std::string& str);
