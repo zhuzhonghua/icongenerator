@@ -58,6 +58,11 @@ void ImageUtil::renderTex(Texture* tex, Rect* src, Rect* dst)
 	SDL_RenderCopy(gRender, tex, src, &dst);
 }
 
+void ImageUtil::queryTex(Texture* tex, int* w, int* h)
+{
+	SDL_QueryTexture(tex, NULL, NULL, w, h);
+}
+
 SDL_Renderer* ImageUtil::gRender;
 
 SDL_Renderer* ImageUtil::getRenderer()

@@ -12,6 +12,7 @@ public:
 	static void destroyTex(Texture* tex);
 
 	static void renderTex(Texture* tex, Rect* src, Rect* dst);
+	static void queryTex(Texture* tex, int* w, int* h);
 public:
 	static SDL_Renderer* getRenderer();
 	static void setRenderer(SDL_Renderer* render);
