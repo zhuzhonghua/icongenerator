@@ -18,7 +18,7 @@ Tab::~Tab()
 
 void Tab::draw()
 {
-	//_bg->draw();
+	_bg->draw();
 	_txt->draw();
 }
 

@@ -6,7 +6,9 @@ Text::Text(const std::string& str)
 	:_str(str)
 {
 	_strTex = TextUtil::renderText(str);
-	_bound = Utils::rect(50, 50, 30, 30);
+	int w,h;
+	ImageUtil::queryTex(_strTex, &w, &h);
+	_bound = Utils::rect(0, 0, w, h);
 }
 
 Text::~Text()

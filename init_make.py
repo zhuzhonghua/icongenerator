@@ -64,7 +64,7 @@ clean:
 	rm -f *.d; \
 	rm -f *.o; \
 	rm -f $(TARGET) \
-	rm -rf $(TEMP_DIR)
+	rm -rf $(TEMP_DIR)/*
 """.replace("$(TARGET)", target).replace("$(TEMP_DIR)", temp_dir)
 
 with open("Makefile", "w") as make_file:

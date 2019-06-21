@@ -18,11 +18,7 @@ Image::Image(int width, int height, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
 
 Image::~Image()
 {
-	if(_tex != NULL)
-	{
-		ImageUtil::destroyTex(_tex);
-	}
-	_tex = NULL;
+	ImageUtil::destroyTex(_tex);
 }
 
 void Image::draw()
