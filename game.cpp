@@ -3,6 +3,7 @@
 #include "util.h"
 #include "imageutil.h"
 #include "frameitems.h"
+#include "image.h"
 
 Game::Game()
 {
@@ -30,6 +31,8 @@ void Game::init()
   _fpsLimiter.setMaxFPS(60.0f);
 
 	_frame = new FrameItems();
+	_bg = new Image("data/bg.png");
+	_bg->setBound(0, 0, _width, _height);
 }
 
 void Game::run()
@@ -60,6 +63,7 @@ void Game::run()
 
 void Game::draw()
 {
+	_bg->draw();
 	_frame->draw();
 }
 

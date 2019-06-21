@@ -3,7 +3,8 @@
 class Gizmo{
 public:
 	Gizmo(){ _parent = NULL; }
-
+	virtual ~Gizmo() {}
+	
 	Gizmo* getParent() { return _parent; }
 	void setParent(Gizmo* p) { _parent = p; }
 

@@ -4,6 +4,7 @@
 #include "inputmanager.h"
 
 class FrameItems;
+class Image;
 
 class Game{
 public:
@@ -34,4 +35,5 @@ protected:
 
 protected:
 	FrameItems* _frame;
+	Image* _bg;
 };
