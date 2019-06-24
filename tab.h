@@ -12,6 +12,8 @@ public:
 	~Tab();
 
 	void draw();
+
+	void setPos(int x, int y);
 protected:
 	Text* _txt;
 	Image* _bg;

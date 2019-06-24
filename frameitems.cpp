@@ -7,10 +7,13 @@
 FrameItems::FrameItems()
 {
 	_tab = new Tab("Head");
+
+	_tab->setPos(100, 100);
 }
 
 FrameItems::~FrameItems()
 {
+	delete _tab;
 }
 
 void FrameItems::draw()

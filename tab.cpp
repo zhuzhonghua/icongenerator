@@ -6,7 +6,7 @@
 
 Tab::Tab(const std::string& str)
 {
-	_bg = new Image(30, 30, 255, 255, 255, 255);
+	_bg = new Image(60, 25, 255, 255, 255, 255);
 	_txt = new Text(str);
 }
 
@@ -22,3 +22,8 @@ void Tab::draw()
 	_txt->draw();
 }
 
+void Tab::setPos(int x, int y)
+{
+	_bg->setPos(x, y);
+	_txt->setPos(x, y);
+}

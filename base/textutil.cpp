@@ -9,7 +9,7 @@ void TextUtil::initFont(SDL_Renderer* render, const std::string& path)
 {
 	ASSERT(_font == NULL);
 
-	_font = TTF_OpenFont(path.c_str(), 30);
+	_font = TTF_OpenFont(path.c_str(), 20);
 	_render = render;
 }
 
