@@ -7,21 +7,29 @@
 
 FrameItems::FrameItems()
 {
-	_tab = new Tab("Head");
-	_tab->setPos(100, 100);
+	int tabY = 100;
+	_headTab = new Tab("Head");
+	_headTab->setPos(100, tabY);
 
-	_items = new Items();
-	_items->setPos(100+100+10, 100);
+	_headItems = new Items();
+	_headItems->setPos(100+100+10, 100);
+
+	_hairTab = new Tab("Hair");
+	_hairTab->setPos(100, tabY+=50);
 }
 
 FrameItems::~FrameItems()
 {
-	delete _tab;
-	delete _items;
+	delete _headTab;
+	delete _headItems;
+
+	delete _hairTab;
 }
 
 void FrameItems::draw()
 {	
-	_tab->draw();
-	_items->draw();
+	_headTab->draw();
+	_headItems->draw();
+
+	_hairTab->draw();
 }

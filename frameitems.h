@@ -10,6 +10,9 @@ public:
 
 	void draw();
 protected:
-	Tab* _tab;
-	Items* _items;
+	Tab* _headTab;
+	Items* _headItems;
+
+	Tab* _hairTab;
+	Items* _hairItems;
 };
