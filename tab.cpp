@@ -4,9 +4,13 @@
 #include "image.h"
 #include "text.h"
 
+const int TABWIDTH = 60;
+const int TABHEIGHT = 25;
+
 Tab::Tab(const std::string& str)
+	:TouchArea(0,0,0,0)
 {
-	_bg = new Image(60, 25, 255, 255, 255, 255);
+	_bg = new Image(TABWIDTH, TABHEIGHT, 255, 255, 255, 255);
 	_txt = new Text(str);
 }
 
@@ -26,4 +30,5 @@ void Tab::setPos(int x, int y)
 {
 	_bg->setPos(x, y);
 	_txt->setPos(x, y);
+	changeRect(x, y, TABWIDTH, TABHEIGHT);
 }

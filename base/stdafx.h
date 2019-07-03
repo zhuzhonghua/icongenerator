@@ -35,6 +35,7 @@ static inline void fatalError(std::string info)
 typedef SDL_Rect Rect;
 typedef SDL_Point Point;
 typedef SDL_Texture Texture;
+typedef SDL_Event Event;
 
 #include "util.h"
 #include "imageutil.h"

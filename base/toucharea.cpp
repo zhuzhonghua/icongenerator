@@ -5,16 +5,28 @@
 
 TouchArea::TouchArea(Rect rect)
 	:_rect(rect),
-	 _touchDown(false)
+	 _touchDown(false),
+	 _onClick(NULL)
 {
 	InputManager::inst()->addEventListener(this);
 }
 
 TouchArea::TouchArea(int x, int y, int w, int h)
 	:_rect(Utils::rect(x,y,w,h)),
-	 _touchDown(false)
+	 _touchDown(false),
+	 _onClick(NULL)
 {
 	InputManager::inst()->addEventListener(this);
+}
+
+void TouchArea::changeRect(Rect rect)
+{
+	_rect = rect;
+}
+
+void TouchArea::changeRect(int x, int y, int w, int h)
+{
+	_rect = Utils::rect(x,y,w,h);
 }
 
 TouchArea::~TouchArea()
@@ -54,7 +66,11 @@ bool TouchArea::onEvent(SDL_Event* e)
 		{
 			_touchDown = false;
 			this->onTouchUp();
-			this->onClick();
+			if(this->_onClick)
+			{
+				_onClick(this);
+			}
+			//this->onClick();
 
 			return true;
 		}

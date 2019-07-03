@@ -5,5 +5,5 @@ public:
 	EventListener(){}
 	~EventListener(){}
 
-	virtual bool onEvent(SDL_Event* event) = 0;
+	virtual bool onEvent(Event* event) = 0;
 };

@@ -6,7 +6,7 @@
 class Text;
 class Image;
 
-class Tab{
+class Tab : public TouchArea{
 public:
 	Tab(const std::string& str);
 	~Tab();
