@@ -1,7 +1,8 @@
 #pragma once
 
 class Tab;
-class Items;
+class HeadItems;
+class HairItems;
 
 class FrameItems{
 public:
@@ -11,8 +12,8 @@ public:
 	void draw();
 protected:
 	Tab* _headTab;
-	Items* _headItems;
+	HeadItems* _headItems;
 
 	Tab* _hairTab;
-	Items* _hairItems;
+	HairItems* _hairItems;
 };

@@ -1,19 +1,20 @@
 #include "stdafx.h"
 
-#include "items.h"
+#include "hairitems.h"
 #include "image.h"
 
-Items::Items()
+HairItems::HairItems()
 {
+	_visible = false;
 	for(int i=0;i<21;i++)
 	{
-		Image* item = new Image("data/head/1.png");
+		Image* item = new Image("data/hair/1.png");
 		item->setSize(100, 100);
 		_items.push_back(item);
 	}
 }
 
-Items::~Items()
+HairItems::~HairItems()
 {
 	for(int i=0; i<_items.size(); i++)
 	{
@@ -23,15 +24,17 @@ Items::~Items()
 	_items.clear();
 }
 
-void Items::draw()
+void HairItems::draw()
 {
+	if(!_visible) return;
+	
 	for(int i=0; i<_items.size(); i++)
 	{
 		_items[i]->draw();
 	}	
 }
 
-void Items::setPos(int x, int y)
+void HairItems::setPos(int x, int y)
 {
 	int tempX=x, tempY=y;
 	for(int i=0; i<_items.size(); i++)

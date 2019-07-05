@@ -3,7 +3,8 @@
 #include "frameitems.h"
 #include "imageutil.h"
 #include "tab.h"
-#include "items.h"
+#include "headitems.h"
+#include "hairitems.h"
 
 void OnClick(TouchArea* ta)
 {
@@ -22,12 +23,17 @@ FrameItems::FrameItems()
 	_headTab->setPos(100, tabY);
 	_headTab->setOnClick(OnClick);
 	
-	_headItems = new Items();
+	_headItems = new HeadItems();
 	_headItems->setPos(100+100+10, 100);
+	_headItems->setVisible(true);
 
 	_hairTab = new Tab("Hair");
 	_hairTab->setPos(100, tabY+=50);
 	_hairTab->setOnClick(OnClick2);
+
+	_hairItems = new HairItems();
+	_hairItems->setPos(100+100+10, 100);
+	_hairItems->setVisible(false);
 }
 
 FrameItems::~FrameItems()
@@ -36,6 +42,7 @@ FrameItems::~FrameItems()
 	delete _headItems;
 
 	delete _hairTab;
+	delete _hairItems;
 }
 
 void FrameItems::draw()
@@ -44,4 +51,5 @@ void FrameItems::draw()
 	_headItems->draw();
 
 	_hairTab->draw();
+	_hairItems->draw();
 }
