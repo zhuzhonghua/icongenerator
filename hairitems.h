@@ -11,6 +11,7 @@ public:
 
 	void setPos(int x, int y);
 	void setVisible(bool vis) { _visible=vis; }
+	
 protected:
 	std::vector<Image*> _items;
 

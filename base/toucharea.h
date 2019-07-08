@@ -3,7 +3,7 @@
 #include "eventlistener.h"
 
 class TouchArea;
-typedef void (*OnTouchClick)(TouchArea*);
+typedef void (*OnTouchClick)(void*);
 
 class TouchArea : public EventListener{
 public:
@@ -21,6 +21,8 @@ public:
 	//virtual void onClick(){}
 
 	void setOnClick(OnTouchClick click) { _onClick = click; }
+	void setData(void* d) { _data = d; }
+	void* getData() { return _data; }
 protected:
 	bool overlapPoint(float x, float y);
 	
@@ -29,4 +31,6 @@ protected:
 	Rect _rect;
 
 	OnTouchClick _onClick;
+
+	void* _data;
 };

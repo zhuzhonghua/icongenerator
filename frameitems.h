@@ -10,6 +10,14 @@ public:
 	~FrameItems();
 
 	void draw();
+
+	static void onHeadTabClick(void* ta);
+	static void onHairTabClick(void* ta);
+
+	HeadItems* getHeadItems() { return _headItems; }
+	HairItems* getHairItems() { return _hairItems; }
+
+	void setAllItemsInvisible();
 protected:
 	Tab* _headTab;
 	HeadItems* _headItems;

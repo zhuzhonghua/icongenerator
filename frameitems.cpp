@@ -6,14 +6,20 @@
 #include "headitems.h"
 #include "hairitems.h"
 
-void OnClick(TouchArea* ta)
+void FrameItems::onHeadTabClick(void* ta)
 {
-	printf("onclick\n");
+	//printf("onclickheadtab");
+	FrameItems* fi = (FrameItems*)(((TouchArea*)ta)->getData());
+	fi->setAllItemsInvisible();
+	fi->getHeadItems()->setVisible(true);
 }
 
-void OnClick2(TouchArea* ta)
+void FrameItems::onHairTabClick(void* ta)
 {
-	printf("onclick2\n");
+	//printf("onclickhairtab");
+	FrameItems* fi = (FrameItems*)(((TouchArea*)ta)->getData());
+	fi->setAllItemsInvisible();
+	fi->getHairItems()->setVisible(true);
 }
 
 FrameItems::FrameItems()
@@ -21,7 +27,8 @@ FrameItems::FrameItems()
 	int tabY = 100;
 	_headTab = new Tab("Head");
 	_headTab->setPos(100, tabY);
-	_headTab->setOnClick(OnClick);
+	_headTab->setOnClick(&(FrameItems::onHeadTabClick));
+	_headTab->setData(this);
 	
 	_headItems = new HeadItems();
 	_headItems->setPos(100+100+10, 100);
@@ -29,8 +36,9 @@ FrameItems::FrameItems()
 
 	_hairTab = new Tab("Hair");
 	_hairTab->setPos(100, tabY+=50);
-	_hairTab->setOnClick(OnClick2);
-
+	_hairTab->setOnClick(&(FrameItems::onHairTabClick));
+	_hairTab->setData(this);
+		
 	_hairItems = new HairItems();
 	_hairItems->setPos(100+100+10, 100);
 	_hairItems->setVisible(false);
@@ -52,4 +60,10 @@ void FrameItems::draw()
 
 	_hairTab->draw();
 	_hairItems->draw();
+}
+
+void FrameItems::setAllItemsInvisible()
+{
+	_headItems->setVisible(false);
+	_hairItems->setVisible(false);
 }
