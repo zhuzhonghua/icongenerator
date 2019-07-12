@@ -24,23 +24,29 @@ void FrameItems::onHairTabClick(void* ta)
 
 FrameItems::FrameItems()
 {
-	int tabY = 100;
+	int tabX = 25;
+	int tabY = 200;
+	int interW = 80;
+
+	int itemsX = tabX+interW;
+	int itemsY = 200;
+	
 	_headTab = new Tab("Head");
-	_headTab->setPos(100, tabY);
+	_headTab->setPos(tabX, tabY);
 	_headTab->setOnClick(&(FrameItems::onHeadTabClick));
 	_headTab->setData(this);
 	
 	_headItems = new HeadItems();
-	_headItems->setPos(100+100+10, 100);
+	_headItems->setPos(itemsX, itemsY);
 	_headItems->setVisible(true);
 
 	_hairTab = new Tab("Hair");
-	_hairTab->setPos(100, tabY+=50);
+	_hairTab->setPos(tabX, tabY+=50);
 	_hairTab->setOnClick(&(FrameItems::onHairTabClick));
 	_hairTab->setData(this);
 		
 	_hairItems = new HairItems();
-	_hairItems->setPos(100+100+10, 100);
+	_hairItems->setPos(itemsX, itemsY);
 	_hairItems->setVisible(false);
 }
 

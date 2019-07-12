@@ -7,8 +7,8 @@
 
 Game::Game()
 {
-  _width = 960;
-  _height = 640;
+  _width = 640;
+  _height = 960;
 
   _gameExit = false;
 }
