@@ -1,14 +1,14 @@
 #include "stdafx.h"
 
 #include "headitems.h"
-#include "image.h"
+#include "imagebutton.h"
 
 HeadItems::HeadItems()
 {
 	_visible = false;
 	for(int i=0;i<21;i++)
 	{
-		Image* item = new Image("data/head/1.png");
+		ImageButton* item = new ImageButton("data/head/1.png");
 		item->setSize(100, 100);
 		_items.push_back(item);
 	}
@@ -44,5 +44,13 @@ void HeadItems::setPos(int x, int y)
 			tempX = x;
 			tempY += 100;
 		}
+	}
+}
+
+void HeadItems::setOnClick(OnTouchClick click)
+{
+	for(int i=0; i<_items.size(); i++)
+	{
+		_items[i]->setOnClick(click);
 	}
 }

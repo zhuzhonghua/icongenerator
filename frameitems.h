@@ -14,6 +14,9 @@ public:
 	static void onHeadTabClick(void* ta);
 	static void onHairTabClick(void* ta);
 
+	static void onHeadImgClick(void* ta);
+	static void onHairImgClick(void* ta);
+	
 	HeadItems* getHeadItems() { return _headItems; }
 	HairItems* getHairItems() { return _hairItems; }
 

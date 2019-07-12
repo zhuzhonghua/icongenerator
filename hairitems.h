@@ -1,6 +1,6 @@
 #pragma once
 
-class Image;
+class ImageButton;
 
 class HairItems{
 public:
@@ -11,9 +11,10 @@ public:
 
 	void setPos(int x, int y);
 	void setVisible(bool vis) { _visible=vis; }
+	void setOnClick(OnTouchClick click);
 	
 protected:
-	std::vector<Image*> _items;
+	std::vector<ImageButton*> _items;
 
 	bool _visible;
 };

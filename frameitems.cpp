@@ -22,6 +22,16 @@ void FrameItems::onHairTabClick(void* ta)
 	fi->getHairItems()->setVisible(true);
 }
 
+void FrameItems::onHeadImgClick(void* ta)
+{
+	printf("onheadimgclick");
+}
+
+void FrameItems::onHairImgClick(void* ta)
+{
+	printf("onhairimgclick");
+}
+
 FrameItems::FrameItems()
 {
 	int tabX = 25;
@@ -39,7 +49,8 @@ FrameItems::FrameItems()
 	_headItems = new HeadItems();
 	_headItems->setPos(itemsX, itemsY);
 	_headItems->setVisible(true);
-
+	_headItems->setOnClick(FrameItems::onHeadImgClick);
+	
 	_hairTab = new Tab("Hair");
 	_hairTab->setPos(tabX, tabY+=50);
 	_hairTab->setOnClick(&(FrameItems::onHairTabClick));
@@ -48,6 +59,7 @@ FrameItems::FrameItems()
 	_hairItems = new HairItems();
 	_hairItems->setPos(itemsX, itemsY);
 	_hairItems->setVisible(false);
+	_hairItems->setOnClick(FrameItems::onHairImgClick);
 }
 
 FrameItems::~FrameItems()

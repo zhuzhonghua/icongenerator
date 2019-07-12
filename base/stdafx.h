@@ -37,6 +37,8 @@ typedef SDL_Point Point;
 typedef SDL_Texture Texture;
 typedef SDL_Event Event;
 
+typedef void (*OnTouchClick)(void*);
+
 #include "util.h"
 #include "imageutil.h"
 #include "textutil.h"

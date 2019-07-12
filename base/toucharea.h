@@ -3,7 +3,6 @@
 #include "eventlistener.h"
 
 class TouchArea;
-typedef void (*OnTouchClick)(void*);
 
 class TouchArea : public EventListener{
 public:
