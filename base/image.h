@@ -9,6 +9,8 @@ public:
 	~Image();
 	
 	virtual void draw();
+
+	Texture* getTex() { return _tex; }
 protected:
 	Texture* _tex;
 };

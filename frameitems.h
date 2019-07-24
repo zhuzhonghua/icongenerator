@@ -3,6 +3,7 @@
 class Tab;
 class HeadItems;
 class HairItems;
+class Avatar;
 
 class FrameItems{
 public:
@@ -22,6 +23,8 @@ public:
 
 	void setAllItemsInvisible();
 protected:
+	Avatar* _avatar;
+	
 	Tab* _headTab;
 	HeadItems* _headItems;
 

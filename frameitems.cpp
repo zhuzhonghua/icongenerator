@@ -5,6 +5,7 @@
 #include "tab.h"
 #include "headitems.h"
 #include "hairitems.h"
+#include "avatar.h"
 
 void FrameItems::onHeadTabClick(void* ta)
 {
@@ -60,6 +61,8 @@ FrameItems::FrameItems()
 	_hairItems->setPos(itemsX, itemsY);
 	_hairItems->setVisible(false);
 	_hairItems->setOnClick(FrameItems::onHairImgClick);
+
+	_avatar = new Avatar();
 }
 
 FrameItems::~FrameItems()
@@ -72,7 +75,9 @@ FrameItems::~FrameItems()
 }
 
 void FrameItems::draw()
-{	
+{
+	_avatar->draw();
+	
 	_headTab->draw();
 	_headItems->draw();
 
