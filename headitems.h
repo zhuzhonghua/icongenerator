@@ -12,6 +12,7 @@ public:
 	void setPos(int x, int y);
 	void setVisible(bool vis) { _visible=vis; }
 	void setOnClick(OnTouchClick click);
+	void setData(void* data);
 protected:
 	std::vector<ImageButton*> _items;
 

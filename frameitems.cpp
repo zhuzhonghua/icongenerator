@@ -6,6 +6,7 @@
 #include "headitems.h"
 #include "hairitems.h"
 #include "avatar.h"
+#include "imagebutton.h"
 
 void FrameItems::onHeadTabClick(void* ta)
 {
@@ -25,12 +26,18 @@ void FrameItems::onHairTabClick(void* ta)
 
 void FrameItems::onHeadImgClick(void* ta)
 {
-	printf("onheadimgclick");
+	ImageButton* ib = (ImageButton*)ta;
+	FrameItems* fi = (FrameItems*)(ib->getData());
+	Avatar* ava = fi->getAvatar();
+	ava->setHeadTex(ib->getTex());
 }
 
 void FrameItems::onHairImgClick(void* ta)
 {
-	printf("onhairimgclick");
+	ImageButton* ib = (ImageButton*)ta;
+	FrameItems* fi = (FrameItems*)(ib->getData());
+	Avatar* ava = fi->getAvatar();
+	ava->setHairTex(ib->getTex());
 }
 
 FrameItems::FrameItems()
@@ -51,6 +58,7 @@ FrameItems::FrameItems()
 	_headItems->setPos(itemsX, itemsY);
 	_headItems->setVisible(true);
 	_headItems->setOnClick(FrameItems::onHeadImgClick);
+	_headItems->setData(this);
 	
 	_hairTab = new Tab("Hair");
 	_hairTab->setPos(tabX, tabY+=50);
@@ -61,7 +69,8 @@ FrameItems::FrameItems()
 	_hairItems->setPos(itemsX, itemsY);
 	_hairItems->setVisible(false);
 	_hairItems->setOnClick(FrameItems::onHairImgClick);
-
+	_hairItems->setData(this);
+	
 	_avatar = new Avatar();
 }
 

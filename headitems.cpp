@@ -40,7 +40,8 @@ void HeadItems::setPos(int x, int y)
 	{
 		_items[i]->setPos(tempX, tempY);
 		tempX += 100;
-		if((i+1)%5==0){
+		if((i+1)%5==0)
+		{
 			tempX = x;
 			tempY += 100;
 		}
@@ -52,5 +53,13 @@ void HeadItems::setOnClick(OnTouchClick click)
 	for(int i=0; i<_items.size(); i++)
 	{
 		_items[i]->setOnClick(click);
+	}
+}
+
+void HeadItems::setData(void* data)
+{
+	for(int i=0; i<_items.size(); i++)
+	{
+		_items[i]->setData(data);
 	}
 }

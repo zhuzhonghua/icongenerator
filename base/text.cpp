@@ -1,6 +1,9 @@
 #include "stdafx.h"
 
 #include "text.h"
+#include "util.h"
+#include "imageutil.h"
+#include "textutil.h"
 
 Text::Text(const std::string& str)
 	:_str(str)

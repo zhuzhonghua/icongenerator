@@ -39,10 +39,6 @@ typedef SDL_Event Event;
 
 typedef void (*OnTouchClick)(void*);
 
-#include "util.h"
-#include "imageutil.h"
-#include "textutil.h"
-
 static inline void trace(const char* cmd, ...)
 {
   va_list args;

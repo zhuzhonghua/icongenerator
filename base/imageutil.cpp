@@ -1,4 +1,5 @@
 #include "stdafx.h"
+
 #include "imageutil.h"
 
 Texture* ImageUtil::createSolid(SDL_Renderer* render, int width, int height, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
@@ -47,6 +48,23 @@ Texture* ImageUtil::createTexture(SDL_Renderer* render, const std::string& path)
 Texture* ImageUtil::createTex(const std::string& path)
 {
 	return ImageUtil::createTexture(gRender, path);
+}
+
+void ImageUtil::composeTex(Texture* tex, ...)
+{
+	SDL_SetRenderTarget(gRender, tex);
+	
+	va_list args;
+	va_start(args, tex);
+	Texture* tempTex = NULL;
+	while (tempTex = va_arg(args, Texture*))
+	{
+		SDL_RenderCopy(gRender, tex, NULL, NULL);
+	}
+	
+	va_end(args);
+
+	SDL_SetRenderTarget(gRender, NULL);
 }
 
 // TODO: tex cache

@@ -4,6 +4,7 @@
 #include "imageutil.h"
 #include "frameitems.h"
 #include "image.h"
+#include "textutil.h"
 
 Game::Game()
 {

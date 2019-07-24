@@ -55,3 +55,12 @@ void HairItems::setOnClick(OnTouchClick click)
 		_items[i]->setOnClick(click);
 	}
 }
+
+
+void HairItems::setData(void* data)
+{
+	for(int i=0; i<_items.size(); i++)
+	{
+		_items[i]->setData(data);
+	}
+}

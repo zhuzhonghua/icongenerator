@@ -1,4 +1,6 @@
 #include "stdafx.h"
+#include "imageutil.h"
+#include "util.h"
 
 #include "image.h"
 

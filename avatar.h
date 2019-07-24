@@ -6,8 +6,14 @@ class Avatar{
 public:
 	Avatar();
 	void draw();
+	
+	void setHairTex(Texture* tex);
+	void setHeadTex(Texture* tex);
 protected:
-	Image* _bg;
+	void compose();
+protected:
+	Rect _bound;
+	//Image* _bg;
 	Texture* _finalTex;
 
 	Texture* _hairTex;

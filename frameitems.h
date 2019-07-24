@@ -20,7 +20,8 @@ public:
 	
 	HeadItems* getHeadItems() { return _headItems; }
 	HairItems* getHairItems() { return _hairItems; }
-
+	Avatar* getAvatar() { return _avatar; }
+	
 	void setAllItemsInvisible();
 protected:
 	Avatar* _avatar;
