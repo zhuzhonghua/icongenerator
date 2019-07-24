@@ -13,7 +13,7 @@ protected:
 	void compose();
 protected:
 	Rect _bound;
-	//Image* _bg;
+	Image* _bg;
 	Texture* _finalTex;
 
 	Texture* _hairTex;

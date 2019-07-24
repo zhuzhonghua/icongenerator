@@ -5,6 +5,7 @@
 ImageButton::ImageButton(const std::string& path)
 	:Image(path),TouchArea(0,0,0,0)
 {
+	setData(this);
 }
 
 void ImageButton::setPos(int x, int y)

@@ -4,8 +4,8 @@
 #include "imagebutton.h"
 
 HeadItems::HeadItems()
+	:_visible(true)
 {
-	_visible = false;
 	for(int i=0;i<21;i++)
 	{
 		ImageButton* item = new ImageButton("data/head/1.png");
@@ -31,6 +31,16 @@ void HeadItems::draw()
 	{
 		_items[i]->draw();
 	}	
+}
+
+
+void HeadItems::setVisible(bool vis)
+{
+	_visible = vis;
+	for(int i=0; i<_items.size(); i++)
+	{
+		_items[i]->setVisible(vis);
+	}
 }
 
 void HeadItems::setPos(int x, int y)
@@ -60,6 +70,6 @@ void HeadItems::setData(void* data)
 {
 	for(int i=0; i<_items.size(); i++)
 	{
-		_items[i]->setData(data);
+		_items[i]->setData2(data);
 	}
 }

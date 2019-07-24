@@ -10,7 +10,7 @@ public:
 	void draw();
 
 	void setPos(int x, int y);
-	void setVisible(bool vis) { _visible=vis; }
+	void setVisible(bool vis);
 	void setOnClick(OnTouchClick click);
 	void setData(void* data);
 protected:

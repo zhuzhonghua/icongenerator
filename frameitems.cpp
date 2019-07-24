@@ -26,16 +26,16 @@ void FrameItems::onHairTabClick(void* ta)
 
 void FrameItems::onHeadImgClick(void* ta)
 {
-	ImageButton* ib = (ImageButton*)ta;
-	FrameItems* fi = (FrameItems*)(ib->getData());
+	ImageButton* ib = (ImageButton*)(((TouchArea*)ta)->getData());
+	FrameItems* fi = (FrameItems*)(ib->getData2());
 	Avatar* ava = fi->getAvatar();
 	ava->setHeadTex(ib->getTex());
 }
 
 void FrameItems::onHairImgClick(void* ta)
 {
-	ImageButton* ib = (ImageButton*)ta;
-	FrameItems* fi = (FrameItems*)(ib->getData());
+	ImageButton* ib = (ImageButton*)(((TouchArea*)ta)->getData());
+	FrameItems* fi = (FrameItems*)(ib->getData2());
 	Avatar* ava = fi->getAvatar();
 	ava->setHairTex(ib->getTex());
 }

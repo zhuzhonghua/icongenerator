@@ -54,15 +54,15 @@ void ImageUtil::composeTex(Texture* tex, ...)
 {
 	SDL_SetRenderTarget(gRender, tex);
 	
-	va_list args;
-	va_start(args, tex);
-	Texture* tempTex = NULL;
-	while (tempTex = va_arg(args, Texture*))
+	va_list ap;
+	va_start(ap, tex);
+	Texture* temp = NULL;
+	while ((temp = va_arg(ap, Texture*)) != NULL)
 	{
-		SDL_RenderCopy(gRender, tex, NULL, NULL);
+		SDL_RenderCopy(gRender, temp, NULL, NULL);
 	}
 	
-	va_end(args);
+	va_end(ap);
 
 	SDL_SetRenderTarget(gRender, NULL);
 }

@@ -34,6 +34,15 @@ void HairItems::draw()
 	}	
 }
 
+void HairItems::setVisible(bool vis)
+{
+	_visible = vis;
+	for(int i=0; i<_items.size(); i++)
+	{
+		_items[i]->setVisible(vis);
+	}
+}
+
 void HairItems::setPos(int x, int y)
 {
 	int tempX=x, tempY=y;
@@ -61,6 +70,6 @@ void HairItems::setData(void* data)
 {
 	for(int i=0; i<_items.size(); i++)
 	{
-		_items[i]->setData(data);
+		_items[i]->setData2(data);
 	}
 }

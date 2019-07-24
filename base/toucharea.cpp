@@ -6,7 +6,10 @@
 TouchArea::TouchArea(Rect rect)
 	:_rect(rect),
 	 _touchDown(false),
-	 _onClick(NULL)
+	 _onClick(NULL),
+	 _data(NULL),
+	 _data2(NULL),
+	 _visible(true)
 {
 	InputManager::inst()->addEventListener(this);
 }
@@ -14,7 +17,10 @@ TouchArea::TouchArea(Rect rect)
 TouchArea::TouchArea(int x, int y, int w, int h)
 	:_rect(Utils::rect(x,y,w,h)),
 	 _touchDown(false),
-	 _onClick(NULL)
+	 _onClick(NULL),
+	 _data(NULL),
+	 _data2(NULL),
+	 _visible(true)
 {
 	InputManager::inst()->addEventListener(this);
 }
@@ -41,6 +47,11 @@ bool TouchArea::overlapPoint(float x, float y)
 
 bool TouchArea::onEvent(SDL_Event* e)
 {
+	if (!_visible)
+	{
+		return false;
+	}
+	
 	if (e->type == SDL_MOUSEBUTTONDOWN &&
 			e->button.button == SDL_BUTTON_LEFT)
 	{
