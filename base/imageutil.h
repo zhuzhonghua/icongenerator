@@ -8,7 +8,7 @@ public:
 	static Texture* createTexture(SDL_Renderer* render, const std::string& path);
 
 	static Texture* createTex(const std::string& path);
-
+	static Texture* createEmptyTex(int w, int h);	
 	static void destroyTex(Texture* tex);
 
 	static void renderTex(Texture* tex, Rect* src, Rect* dst);

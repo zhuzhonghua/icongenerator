@@ -14,7 +14,7 @@ Avatar::Avatar()
 	_bg = new Image(_bound.w, _bound.h, 255, 255, 255, 255);
 	_bg->setBound(_bound);
 
-	_finalTex = ImageUtil::createSolid(_bound.w,_bound.h,255,255,255,255);	
+	//_finalTex = ImageUtil::createEmptyTex(_bound.w,_bound.h);	
 }
 
 void Avatar::draw()

@@ -6,7 +6,7 @@
 HeadItems::HeadItems()
 	:_visible(true)
 {
-	for(int i=0;i<21;i++)
+	for(int i=0;i<1;i++)
 	{
 		ImageButton* item = new ImageButton("data/head/1.png");
 		item->setSize(100, 100);

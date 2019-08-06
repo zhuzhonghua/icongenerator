@@ -50,6 +50,18 @@ Texture* ImageUtil::createTex(const std::string& path)
 	return ImageUtil::createTexture(gRender, path);
 }
 
+Texture* ImageUtil::createEmptyTex(int w, int h)
+{
+	Texture* tex = SDL_CreateTexture(gRender, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
+	SDL_SetRenderTarget(gRender, tex);
+	SDL_SetRenderDrawBlendMode(gRender, SDL_BLENDMODE_NONE);
+	SDL_SetRenderDrawColor(gRender, 255, 255, 255, 0);
+	SDL_RenderFillRect(gRender, NULL);
+	SDL_SetRenderTarget(gRender, NULL);
+
+	return tex;
+}
+
 void ImageUtil::composeTex(Texture* tex, ...)
 {
 	SDL_SetRenderTarget(gRender, tex);

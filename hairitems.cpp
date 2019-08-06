@@ -6,7 +6,7 @@
 HairItems::HairItems()
 {
 	_visible = false;
-	for(int i=0;i<21;i++)
+	for(int i=0;i<1;i++)
 	{
 		ImageButton* item = new ImageButton("data/hair/1.png");
 		item->setSize(100, 100);
